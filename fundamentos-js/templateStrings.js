@@ -10,6 +10,6 @@ ${nome}!`//Abre e fecha as crase
 console.log(concatenacao, template)
 
 //Expressões
-console.log(`1 + 1 = ${1 + 1}`)// Dentro de uma template streing é possível chamarmos uma função
+console.log(`1 + 1 = ${1 + 1}`)// Dentro de uma template string é possível chamarmos uma função
 const up = texto => texto.toUpperCase()
 console.log(`Ei... ${up('cuidado')}!`)
