@@ -21,6 +21,10 @@ Object.entries(pessoa).forEach(e => {
     console.log(`${e[0]}: ${e[1]}`)
 })
 
+Object.entries(pessoa).forEach(([chave, valor]) => {
+    console.log(`${chave}: ${valor}`)
+}) 
+
 /**
  * E aqui nós vamos fazer alguns exemplos de funções interessantes. 
  * Eu vou criar um objeto usando a NOTAÇÃO LITERAL que você já está bem familiarizado nesse ponto do curso. 
@@ -49,28 +53,72 @@ Object.entries(pessoa).forEach(e => {
  * Você vai ter um array mais externo composto de um array que tem dois elementos:
  * o primeiro é o valor da chave e o segundo é o valor propriamente dito. 
  * 
- * Se você quiser você pode percorrer esse array usando um ou qualquer outra função de percorrê la. 
- * Vamos achar isso mais à frente mas só mostrando aqui para você um exemplo um objeto que pontua isso pessoa. 
- * Então a partir desse fórum eu vou percorrer os elementos do que foi gerado a partir de objetos pontuais 
- * isso no caso de cada elemento seria um rei que tem duas posições. 
+ * Se você quiser você pode percorrer esse array usando um forEach ou qualquer outra função de percorrer um array. 
+ * Vamos mostrar isso mais à frente mas só mostrando para você um exemplo:
+ * Object.entries(pessoa).forEach(e => {
+    console.log(`${e[0]}: ${e[1]}`)
+})
+ * 
+ * Então a partir desse forEach eu vou percorrer os elementos do array que foi gerado 
+ * a partir de Object.entries(pessoa). 
+ * Neste caso, cada elemento seria um array que tem duas posições. 
  * O primeiro seria a chave e depois o valor. 
- * Existem muitas formas de você fazer isso você pode percorrer o próprio à rede diretamente aqui ou se 
- * você quiser usar um operador da estrutura pode tirar esses dois elementos dentro do R certo mas eu vou 
- * simplesmente colocar aquele console no ponto log e vou colocar um em pé destruindo o primeiro elemento 
- * de interesse 0 dois pontos o elemento de símbolo que seria a chave e o valor. 
- * Deixo aqui meu tempo a indústria de metal vai ver que ele mostrou o nome Rebecca idade 2 3 Alexa quiser 
- * tirar logo o nome chave e valor após isso você pode tirar esse elemento colocar aqui um aparador destruído. 
- * E aqui você pode ter por exemplo chave vírgula valor certo aqui eu vou colocar entre parênteses pra 
- * ele entender que aqui você está usando um desktop pronta que eu já tenho o elemento chave é o valor 
- * de cada um desses a raiz aqui internos que foram criados a partir do zero em vez de usar é zero e nunca 
- * menos descritivo você pode substituir isso aqui por chave. 
- * Isso aqui vale certo executando exatamente a mesma coisa aqui de uma forma um pouco mais claro e usando 
- * um recurso que já aprendeu anteriormente que é o deste jogo. 
- * No caso aqui eu sou desse estruturando os elementos que o tornam a maior cujos elementos são a raiz 
- * de duas posições Eu estou simplesmente pegando cada um dos elementos que vêm por aí e tiramos de dentro 
- * dessa estrutura o elemento um elemento 2 Eu sei que o primeiro é a chave e o segundo é o valor percorrido 
- * aqui da forma que está aparecendo aqui no console. 
- * Espero que tenha ficado claro esse exemplo continuado para a gente ver mais métodos do objeto. 
+ * Existem muitas formas de você fazer isso. Você pode percorrer o próprio array diretamente ou se 
+ * você quiser usar um operador destruction você pode tirar esses dois elementos de dentro do array, mas eu vou 
+ * simplesmente colocar aqui:
+ * Object.entries(pessoa).forEach(e => {
+    console.log(`${e[0]}: ${e[1]}`)
+})
+ * 
+ *  console.log e vou colocar um template string (`), o primeiro elemento 
+ * de indice [0]: dois pontos: 
+ * console.log(`${e[0]}:
+ * o elemento de indice [1] que é a chave e o valor: console.log(`${e[0]}: ${e[1]}. 
+ * Fechando o template string: console.log(`${e[0]}: ${e[1]}`).
+ * Executando veremos o resultado:
+ * nome: Rebeca
+ * idade: 2
+ * peso: 13
+ * 
+ * Léo, se eu quiser tirar logo o nome, chave e valor? Sim pode. Você pode tirar esse elemento (e)
+ * Object.entries(pessoa).forEach(e => {
+ *  console.log(`${e[0]}: ${e[1]}`)
+ * })
+ * colocar aqui um operador destruction[]: 
+ * Object.entries(pessoa).forEach([] => {
+ *   console.log(`${e[0]}: ${e[1]}`)
+ * })
+ * 
+ * E aqui você pode ter, por exemplo, chave, valor:
+ * Object.entries(pessoa).forEach([chave, valor] => {
+ *   console.log(`${e[0]}: ${e[1]}`)
+ * })
+ * 
+ * Aqui eu vou colocar entre parênteses pra ele entender que aqui você está usando um destruction:
+ * Object.entries(pessoa).forEach(([chave, valor]) => {
+    console.log(`${e[0]}: ${e[1]}`)
+})
+ * 
+ * Pronto! Aqui eu já tenho o elemento chave e valor de cada um desses arrays, aqui externos
+ * [ [ 'nome', 'Rebeca' ], [ 'idade', 2 ], [ 'peso', 13 ] ],
+ * que foram criados a partir do entries - Object.entries(pessoa).forEach([chave, valor]. 
+ * 
+ * Em vez de usar: e, indice zero[0], e, indice um[1] - (`${e[0]}: ${e[1]}`) , que é  
+ * menos descritivo, você pode substituir isso aqui - (`${e[0]}: ${e[1]}`),  por chave e valor:
+ * Object.entries(pessoa).forEach(([chave, valor]) => {
+ *   console.log(`${chave}: ${valor}`)
+ * })
+ * 
+ * Executando veremos o mesmo resultado que da forma anterior, porém de uma forma um pouco mais clara
+ *  e usando um recurso que já aprendemos anteriormente que é o destruction. 
+ * No caso aqui eu estou desestruturando os elementos de um array.
+ * Agente viu que o entries retorna um array maior cujos elementos são arrays de duas posições:
+ * [ [ 'nome', 'Rebeca' ], [ 'idade', 2 ], [ 'peso', 13 ] ].
+ *  Eu estou simplesmente pegando cada um dos elementos que vêm desse forEach e tirando de dentro 
+ * dessa estrutura o elemento um e o elemento 2. Eu sei que o primeiro é a chave e o segundo é o valor.
+ * Percorrendo aqui da forma que está aparecendo aqui no console. 
+ * 
+ * Continuado agente vai ver mais métodos de Object. 
  * Tem um método chamado Objetivo define Properties você quer definir uma propriedade de um objeto você 
  * pode definir dinamicamente como a gente está colocando aqui a gente usa a notação literal mas depois 
  * que eu crio o objeto eu posso colocar a pessoa ponto ou não na propriedade atribuir. 
