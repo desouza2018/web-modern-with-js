@@ -119,92 +119,155 @@ Object.entries(pessoa).forEach(([chave, valor]) => {
  * Percorrendo aqui da forma que está aparecendo aqui no console. 
  * 
  * Continuado agente vai ver mais métodos de Object. 
- * Tem um método chamado Objetivo define Properties você quer definir uma propriedade de um objeto você 
- * pode definir dinamicamente como a gente está colocando aqui a gente usa a notação literal mas depois 
- * que eu crio o objeto eu posso colocar a pessoa ponto ou não na propriedade atribuir. 
- * Então por que é que eu iria querer chamar a função para definir uma propriedade. 
- * Porque você pode definir algumas características de uma propriedade por exemplo aquela propriedade pode 
- * ou não ser alterada. 
- * Aquela propriedade ficará ou não visível quando você fizer de ponto 15 por exemplo. 
- * Então esse tipo de atributo você pode colocar numa propriedade então para definir a propriedade o primeiro 
- * definiu Taguatinga e qual o objeto que eu quero incluir na propriedade. 
- * Vou definir o nome da propriedade no caso aqui entre aspas data de nascimento. 
- * Eu não posso colocar data de nascimento fora das aspas porque se não vai tentar interpretar ele como 
- * um identificador ou algo que já existe na linguagem. 
- * Você vai dizer no nome da propriedade que você quer criar e vou passar um objeto que vai ter todas as 
- * características dessa propriedade. 
- * Por exemplo se ele é um propriedade que vai estar passivo ou se listada na Lista do não fizer por exemplo 
- * um objeto que ponto X ou coisas do tipo ele vai ser listado vai ser listado sim. 
- * Você coloca essa propriedade que vai aceitá lo ser modificada não não é uma propriedade que permite ser alterada. 
- * E aí você já pode atribuir nesse momento o valor que você quer dar para essa variável. 
- * Então eu acho que essa é toda minha pessoa data de nascimento vou colocar outra data diferente coloquei 
- * o ano de 2019 aqui tem a ver com o local onde 2 mil e 17 já que eu disse que essa é a propriedade que 
- * não aceita valor e não aceita ser sobre a escrita. 
- * Não aceita essa escrita Melhor dizendo ele vai assumir o valor inicial que ela atribui aqui no próprio 
- * site e depois disso ele funciona mais ou menos como fiz nele que ele congelou especificamente essa variável 
- * e não um objeto inteiro. 
- * Então nesse caso o que vai ficar 2019 é que a data original. 
- * Então se eu fizer aqui um objeto desse ponto quis logo o objeto que isso pessoa executando você vai 
- * ver que ele listou data de nascimento. 
- * Por quê. Porque eu disse que eram enumerável o seu colocar aqui falso e executar novamente esse código. 
- * Você vai perceber que a data de nascimento não será mais numerada na lista de chaves embora você consiga 
- * acessar ele normalmente. 
- * Tanto é que ele imprimiu de 2019 mas pelo fato de ter colocado o falso eu tento pagar as chaves do objeto. 
- * Ele não enumera mas você pode colocar o numeral normalmente então você tem a possibilidade de definir 
- * uma propriedade define ela de uma forma mais completa aceitando os parâmetros de uma propriedade para 
- * que você possa ter uma maior flexibilidade claro que é bem mais código do que simplesmente adicionar 
- * data de nascimento mais sistema e mais controle dessa forma. 
- * Outra função que foi adicionada na versão do clipe de 2015 é a função objeto de ponto. 
- * Assim só para deixar claro aqui é uma funcionalidade que surgiu no S6 em 2015. 
- * Então você faz o seguinte você tem um objeto por exemplo chamado de teste. 
- * Já dizia porque tem esse nome você tem um objeto ou outro atributo você tem um objeto 2 que tem um atributo 
- * também diferente mais tem um atributo igual a esse objeto e estilo. 
- * E aí você pode criar aqui por exemplo um objeto resultante que recebe o objeto de pontuação. 
- * Você tem um objeto de destino e outros objetos que vão receber dados. 
- * Então na verdade o que ele faz ele pega esse objeto e China que é o objeto que vai receber os atributos 
- * de todos os objetos que você passar como parâmetro. 
- * Depois da primeira ele vai pegar esses atributos e vai colocar vai concatenar um objeto que você passou 
- * no primeiro parâmetro. 
- * Então no primeiro caso você tem um atributo a que tem o valor e o objeto tem o B que tem valor 2 então 
- * ele é colocado dentro do objeto insistir no atributo B com um valor 2 e aí o objeto 2 vai receber e 
- * vai colocar dentro do objeto Chino. 
- * O atributo C e depois um atributo só que o app já existia então o valor será sobrescrito o último valor
- * que você colocou no caso o valor do objeto. 
- * 2 Então em outras palavras ele pega todos os atributos desses objetos que você passou você pode passar 
+ * Tem um método chamado Object.defineProperty().
+ * Veja o link: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+ * 
+ * O método Object.defineProperty() define uma nova propriedade diretamente em um objeto, 
+ * ou modifica uma propriedade já existente em um objeto, e retorna o objeto.
+ * Sintaxe 
+ * Object.defineProperty(obj, prop, descriptor)
+ * 
+ * Quando você quer definir uma propriedade de um objeto, você pode definir dinamicamente.
+ * Aqui agente usou a notação literal 
+ * const pessoa = {
+ *   nome: 'Rebeca',
+ *   idade: 2,
+ *   peso: 13
+ * }
+ * 
+ * Entretanto, depois que eu crio o objeto, eu posso colocar pessoa.nomeDaPropriedade e atributo. 
+ * Então por que é que eu iria querer chamar a função para definir uma propriedade? 
+ * - Porque você pode definir algumas características de uma propriedade por exemplo:
+ * - aquela propriedade pode ou não ser alterada? 
+ * - aquela propriedade ficará ou não visível quando você fizer object.keys()?
+ *  
+ * Então esse tipo de atributo você pode colocar numa propriedade.
+ * Então para definir a propriedade:
+ * - primeiro vou definir o target(obj) Object.definyProperty(pessoa, ), ou seja, 
+ * qual o objeto que eu quero incluir na propriedade. 
+ * - Vou definir o nome da propriedade, no caso aqui, entre aspas 'data de nascimento'
+ * Object.definyProperty(pessoa, 'dataNascimento'). 
+ * Eu não posso colocar data de nascimento fora das aspas porque se não o javascript vai
+ * tentar interpretar ele como um identificador - algo que já existe na linguagem. 
+ * Você vai dizer o nome da propriedade(prop) que você quer criar:
+ * Object.defineProperty(obj, prop, descriptor) - Object.defineProperty(pessoa, 'dataNascimento', descriptor).
+ * 
+ * Aqui vou passar um objeto que vai ter todas as características dessa propriedade. 
+ * Por exemplo se ela é uma propriedade que vai estar passivo ou ser listada na Lista quando por exemplo,
+ * eu fizer Objetct.keys() ou coisas do tipo.
+ * Ele vai ser listado vai ser listado? 
+ * Vai ser listado sim. enumerable:true* 
+ */
+Object.defineProperty(pessoa, 'dataNascimento', {
+    enumerable: true, // a propriedada 'dataNascimento' vai ser listada.
+    writable: false, // A propriedade não poderá ser reescrita.
+    value: '01/01/2019'
+})
+
+pessoa.dataNascimento = '01/01/2017'// retornará 01/01/2019 pois a propriedade não pode ser reescrita.
+console.log(pessoa.dataNascimento)
+console.log(Object.keys(pessoa))
+
+/*
+ * Você coloca essa propriedade vai aceitá ser modificada?
+ * Não, pois ela é uma propriedade que não permite ser alterada - writable: false.
+ * Object.defineProperty(pessoa, 'dataNascimento') ( {
+ *     enumerable: true,
+ *     writable: false,
+ * })
+ * 
+ * E aí você já pode atribuir nesse momento, o valor(value) que você quer dar para essa variável. 
+ * 
+ * Object.defineProperty(pessoa, 'dataNascimento') ( {
+ *     enumerable: true,
+ *     writable: false,
+ *     value: '01/01/2019'
+ * })
+ * 
+ * Então vou colocar aqui - pessoa.dataNascimento = '01/01/2017 - vou colocar uma data diferente do valor
+ * pré-configurado(01/01/2019). 
+ * Vou colocar pessoa.dataNascimento = 01/01/2017. Executando veremos que a dataNascmento 01/01/2019 se
+ * manteve inalterada pois a prop 'dataNascimento' não pode ser reescrita(writable: false).
+ * Ela ('dataNascimento') vai assumir o valor inicial que lhe foir atribuída.
+ * Depois de receber o descriptor (writable: false), ela funciona mais ou menos como freeze que congelou
+ * especificamente, essa variável ('dataNascimento') e não o objeto(pessoa) inteiro. 
+ * Então nesse caso, o que vai ficar é '01/01/2019 que é a data original. 
+ * Então se eu fizer aqui um Object.keys: 
+ * console.log(Object.keys(pessoa))
+ * 
+ * Logo, executando veremos que ele listou a dataNascimento.
+ * [ 'nome', 'idade', 'peso', 'dataNascimento' ]
+ *  
+ * Por quê. Porque eu disse que eram enumerável - enumerable: true.
+ * o seu colocar aqui false - enumerable: false, e executar novamente esse código. 
+ * Você vai perceber que a data de nascimento não será mais enumerada na lista de chaves
+ * [ 'nome', 'idade', 'peso'].
+ * Embora você consiga acessar ele normalmente 
+ * nome: Rebeca
+ * idade: 2
+ * peso: 13
+ * 01/01/2019.
+ *  
+ * Tanto é que ele imprimiu 01/01/2019, mas pelo fato de ter colocado o false, eu tento pagar as chaves do objeto 
+ * ele não enumera.
+ * Você tem a possibilidade de na hora de definir uma propriedade, definí-la de uma forma mais completa,
+ * setando os parâmetros de uma propriedade para que você possa ter uma maior flexibilidade.
+ * Claro que é bem mais código do que simplesmente adicionar 'dataNascimento' mas ter mais controle dessa forma. 
+ * 
+ * Outra função que foi adicionada na versão ES06 Ecmascrip06 de 2015 é a função:
+ * Object.assign().
+ * Link: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+ * 
+ * Sintaxe
+ * Object.assign(destino, ...origens).
+ * Assign - atribuir.
+ * 
+ * Esta é uma funcionalidade que surgiu no ES6 em 2015. 
+ * Então você faz o seguinte:
+ * ?
+ */
+
+const dest = { a: 1} // você tem um objeto chamado de dest que recebe um atributo{ a: 1}.
+const o1 = { b: 2}
+const o2 = { c: 3, a: 4}
+const obj = Object.assign(dest, o1, o2)
+
+console.log(dest)
+console.log(obj)
+
+Object.freeze(obj)
+obj.c = 1234// c não será alterado pois o método Object.freeze(obj) congelou o valor.
+console.log(obj)
+
+/** 
+ * O const obj = object.assint(dest, o1, o2) - este código fará com que seja adicionado, concatenado, 
+ * dentro do primeiro parametro passado, que é o dest, os valores dos parametros passados depois do primeiro(dest),
+ * que são (o1, o2). 
+ * OBSERVAÇÃO 1: o valor do atributo do objeto const dest = { a: 1} será sobreescrito pelo valor do parametro
+ * passado em const o2 = { c: 3, a: 4}. Logo  executando o console.log(dest) veremos o seguinte resultado:
+ * { a: 4, b: 2, c: 3 } - No lugar de {a: 1}, foi sobreescrito o valor { a: 4}.
+ * 
+ * OBSERVAÇÃO 2: o objeto const obj recebeu todos os atributos provenientes do objeto dest, que foram 
+ * adicionados a ele após o código const obj = Object.assing(dest, o1, o2). Este método Object.assign(dest, o1, o2) 
+ * atribuiu ao objeto dest(primeiro parâmetro) todos os atributos dos objetos passados depois dele que são (o1, o2).
+ * Também sobreescreveu sobre o primeiro valor do atributo de dest, que era { a: 1}, o valor de o2 que é { a: 4}.
+ * Executando veremos o seguinte resultado _ console.log(obj):
+ * 
+ * { a: 4, b: 2, c: 3 }
+ * 
+ * Então em outras palavras ele pega todos os atributos desses objetos que você passou você pode passar 
  * quantos atributos com outros objetos você quiser. 
- * Nesse método então todos os objetos que você passar ele vai jogando dentro de um objeto de destino. 
- * Os atributos então no final você vai ter um objeto que a concatenação de todos os atributos que você 
- * passou a partir de todos esses objetos que você colocou aqui. 
- * Chamado de Object ponto o é tão lembrado que sempre vai ficar sobrescrito e o último ele vai criar o objeto. 
- * Coloque um parâmetro no outro objeto que ele vai concatenar nesses objetos tem um atributo que já está 
- * aqui o valor vai ser no sobrescrito e o último valor que vai ficar do último objeto que ele tem. 
- * No caso aqui o valor será do objeto 2 e não o valor do objeto deixe de ser o primeiro que eu coloquei aqui. 
- * Então o objeto gera é justamente a concatenação de todos os elementos. 
- * Como já mencionei anteriormente nós já vimos no exemplo passado mas só pra mostrar de novo aqui o objeto foi isso. 
- * Então nesse caso eu posso fazer. 
- * BJ ponto pontos recebe um dois três quatro. 
- * Ele não vai alterar esse valor e imprimir no valor de objeto. 
- * Finalmente você vai ver que esse objeto é a soma concatenação de todos esses atributos. 
- * Quando eu tentei mudar aqui não deu certo porque eu fiz o que já viu no exemplo anterior então nós temos 
- * aqui a quatro B 2 C 3 note que o Alfa o primeiro atributo adicionado aqui no primeiro da lista. 
- * Só que nesse momento aqui no objeto 2 eu sobre escrevi o valor. 
- * Como já mencionei anteriormente espero ter ficado claro. 
- * Esse é um exemplo de algumas funções importantes. 
- * A gente viu foi isso. Nós vimos o que quis. 
- * Nós vimos o site que é uma função nova e com isso queremos 2015 e vimos um desfile próprio e vimos formas 
- * de obter os dados nem fazer um introspecção no objeto que é chamado de reflexo. 
- * Você consegue ler o conteúdo do objeto listar suas propriedades e seus valores a partir disso você conseguir 
- * gerar dinamicamente por exemplo o SQL ou gerar um isqueiro para inserir um dado no banco de dados um certo. 
- * Você pode ler o conteúdo do objeto montar o seu SQL dinamicamente a partir do nome da chave os valores 
- * e tal e no final um dado no banco de dados é possível fazer isso e é muito fácil você leu os valores 
- * de um objeto em JavaScript. 
- * Nessa hora a gente viu três formas e ler suas chaves leu os valores e as entradas a chave e o valor 
- * inclusive fazendo uma desestruturação aqui para pagar o valor da chave e do valor você pode definir 
- * a propriedade de uma forma mais homogênea. 
- * Saulo felizmente já tinha visto assim uma forma de você concatenar vários objetos em um só lembrando 
- * que os últimos elementos vão sobre escrevê lo se tiver propriedades com o mesmo nome então espero na 
- * próxima aula para gente começar a ver o mundo da herança em JavaScript. 
- * E como funcionará assim vai fazer vários e vários exemplos para que gente possa ter esse conceito muito 
- * bem explicado. 
- * Para que não restem dúvidas pra você está muito esperto aproximá la.
+ * Nesse método, todos os objetos que você passar(o1, o2), ele vai jogando dentro de um objeto de destino(dest). 
+ * No final, você vai ter um objeto que é a concatenação de todos os atributos que você passou a partir de todos
+ *  esses objetos que você colocou aqui - const obj = Object.assign(dest, o1, o2). 
+ * 
+ * OBSERVAÇÃO 3: 
+ * - se passou um valor para o atributo{a} de um objeto, por exemplo: const dest = { a: 1},
+ * - Então se depois você passar um outro valor para um mesmo atributo{ a: 4} em outro objeto(const o2),
+ *  por exempo: const o2 = { c: 3, a: 4}, O que acontecerá?
+ * Acontecerá que o método Object.assign(), ao fazer a concatenação(atribuição), irá sobreescrever os últimos
+ * valores{ a: 4} dos atributos sobre os primeiros{ a: 1}, no objeto de destino(dest).
+ * Então executando o console.log(obj) veremos o seguinte resultado:
+ * { a: 4, b: 2, c: 3 }
+ *  
  */
