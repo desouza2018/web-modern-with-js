@@ -1,4 +1,4 @@
-// AULA 103
+// AULA 120
 // LINK: https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/Object-oriented_JS
 // LINK: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 //LINK: https://www.w3schools.com/js/js_object_prototypes.asp
@@ -22,7 +22,7 @@ const volvo = {
     modelo: 'V40',
     velMax: 200
 }
-
+console.log(ferrari.prototype)
 console.log(ferrari.__proto__)
 console.log(ferrari.__proto__ === Object.prototype)
 console.log(volvo.__proto__ === Object.prototype)
@@ -200,51 +200,34 @@ console.log(Object.prototype, MeuObjeto.prototype)
  * console.log(typeof Object, typeof MeuObjeto)
  * console.log(Object.prototype, MeuObjeto.prototype)
  * 
- *  typeoff  Object é do tipo function como a gente já sabe.
- * O tipo typeoff do MeuObjeto também é do tipo function.
-
-Então se toda a função tem Prototype tanto óbvia tem Prototype como meu objeto também tem Prototype
-
-então coloca aquele objeto de ponto para o touchpad.
-
-A gente já viu aqui um objeto vazio e meu objeto ponto Prototype.
-
-Só que note que eles são objetos diferentes.
-
-Isso aqui é um objeto que foi criado a partir do momento que você definiu essa função e depois vai entrar
-
-um pouco mais em detalhe sobre o atributo protótipo das funções no time da sala.
-
-No primeiro momento foi que a gente entendeu aqui que um objeto em JavaScript.
-
-Ele tem uma referência para o seu protótipo e essa é a forma como o JavaScript define herança a partir
-
-da referência para um protótipo você tem uma aparência para um outro objeto e esse objeto tem atributos
-
-e comportamentos que podem ser acessados a partir do objeto filho você pode colocar um atributo que
-
-não existe no filho e ele vai procurar um Protoss que o pai não acha que o pai irá procurar no pai do
-
-pai vai percorrendo a cadeia de protótipos até encontrar aquele determinado atributo essa é uma forma
-
-de você ter o uso de você não ter que replicar os mesmos atributos e as mesmas funções em todos os objetos.
-
-Ele vai procurando uma cadeia de protótipos até achar a forma como você tem de dentro do objeto acessar
-
-o protótipo dele a partir do atributo dela.
-
-Pronto eu falei pra vocês que o protótipo está presente apenas dentro de funções Ferrari é um objeto.
-
-Então se eu fizer por exemplo para a gente testar aqui e aplicar isso aqui e colocar aqui Prototype.
-
-Então será que vai vir alguma coisa a partir desse objeto o ponto Prototype não porque o objeto não
-
-tem esse atributo Prototype ele tem apenas o atributo dela.
-
-Pronto.
-
-Então a gente já viu várias coisas interessantes aqui vamos começar a montar o quebra cabeça de herança
-
-a partir de vários exemplos na próxima hora a gente continua falando sobre esse tema.
+ * typeoff Object é do tipo function como a gente já sabe.
+ * O typeoff do MeuObjeto também é do tipo function.
+ * Então se toda a função tem um Prototype, tanto Object tem Prototype como MeuObjeto também tem Prototype.
+ * Então coloca aqui:
  * 
+ * console.log(Object.prototype, MeuObjeto.prototype).
+ * A gente já viu que é um objeto vazio{} e MeuObjeto.prototype. Só que note que eles são objetos diferentes.
+ * Isso aqui é um objeto que foi criado a partir do momento que você definiu essa função( function MeuObjeto)
+ * e depois vamos entrar um pouco mais em detalhe sobre o atributo protótipo das funções. 
+ * No primeiro momento, agente entendeu que um objeto em JavaScript, ele tem uma referência para o seu protótipo
+ * e essa é a forma como o JavaScript define herança. 
+ * A partir da referência para um protótipo você tem uma referência para um outro objeto e esse objeto
+ * tem atributos e comportamentos que podem ser acessados a partir do objeto filho.
+ * Você pode colocar um atributo que não existe no filho e ele vai procurar no Prototipo pai;
+ * não achando no pai, irá procurar no pai do pai e vai percorrendo a cadeia de protótipos até encontrar
+ * aquele determinado atributo.
+ * Essa é uma forma de você ter reuso e de você não ter que replicar os mesmos atributos e as mesmas 
+ * funções em todos os objetos. 
+ * Ele vai procurando na cadeia de protótipos até achar. 
+ * A forma como você tem de dentro do objeto, acessar o protótipo dele a partir do atributo é:
+ * __proto__
+ * Eu falei pra vocês que o protótype está presente apenas dentro de funções.
+ * Ferrari é um objeto. 
+ * Então se eu fizer isso:
+ * 
+ * console.log(ferrari.prototype) - vai retornar undefined.
+ * 
+ * Então será que vai vir alguma coisa a partir desse Objeto.prototype (ferrari.prototype)?
+ * A resposta é NÃO porque o objeto não tem esse atributo prototype. Ele tem apenas o atributo __proto__.
+ * Continua na próxima aula.
  */
