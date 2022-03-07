@@ -3,9 +3,9 @@ const pai = {
     corCabelo: 'preto'
 }
 
-const filha1 = Object.create(pai)
+const filha1 = Object.create(pai) // Ao invés de criar o objeto apotanto para o Object.prototype, ele Criou um Objeto novo, tendo como protótipo o Objeto pai: const pai = { nome: 'Pedro', corCabelo: 'preto'}
 filha1.nome = 'Ana'
-console.log(filha1.corCabelo)
+console.log(filha1.corCabelo)// filha1 herdará os atributos do pai e receberá a corCabelo do pai que é preto.
 
 const filha2 = Object.create(pai, {
     nome: {
@@ -16,7 +16,7 @@ const filha2 = Object.create(pai, {
 })
 
 console.log(filha2.nome)
-filha2.nomw = 'Carla'
+filha2.nome = 'Carla'
 console.log(`${filha2.nome} tem cabelo ${filha2.corCabelo}`)
 
 console.log(Object.keys(filha1))
