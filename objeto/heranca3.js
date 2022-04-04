@@ -1,3 +1,4 @@
+// Criando o objeto pai
 const pai = { 
     nome: 'Pedro', 
     corCabelo: 'preto'
