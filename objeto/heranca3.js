@@ -3,6 +3,7 @@ const pai = {
     corCabelo: 'preto'
 }
 
+// Veja o link: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 const filha1 = Object.create(pai) // Ao invés de criar o objeto apotanto para o Object.prototype, ele Criou um Objeto novo, tendo como protótipo o Objeto pai: const pai = { nome: 'Pedro', corCabelo: 'preto'}
 filha1.nome = 'Ana'
 //filha1.nome = 'Ana'. Se houvessemos passado o nome de filha1.nome, veriamos que por padrão, nada seria apresentado, mesmo tendo o pai como herança.
@@ -18,9 +19,9 @@ const filha2 = Object.create(pai, {//filha2 recebe como prototipo os atributos d
 })
 
 console.log(filha2.nome)
-filha2.nome = 'Carla' // Tentando mudar o nome da filha2 para Carla. Veremos que continuará sendo Bia, pois o atributo nome não é editável - writable = false.
-console.log(`${filha2.nome} tem cabelo ${filha2.corCabelo}`) //filha2 heradará a corCabelo do pai: preto.
+filha2
 
+//Veja o link: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 console.log(Object.keys(filha1)) // Utilizando o metodo Object.keys(filha1) para ver quais atributos filha1 tem. Será retornado o nome - [ 'nome',].
 console.log(Object.keys(filha2)) // // Utilizando o metodo Object.keys(filha2) para ver quais atributos filha2 tem. Será retornado o nome - [ 'nome',].
 
