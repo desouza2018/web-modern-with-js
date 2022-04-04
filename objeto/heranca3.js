@@ -5,26 +5,42 @@ const pai = {
 
 const filha1 = Object.create(pai) // Ao invés de criar o objeto apotanto para o Object.prototype, ele Criou um Objeto novo, tendo como protótipo o Objeto pai: const pai = { nome: 'Pedro', corCabelo: 'preto'}
 filha1.nome = 'Ana'
-console.log(filha1.corCabelo)// filha1 herdará os atributos do pai e receberá a corCabelo do pai que é preto.
+//filha1.nome = 'Ana'. Se houvessemos passado o nome de filha1.nome, veriamos que por padrão, nada seria apresentado, mesmo tendo o pai como herança.
+console.log(filha1.nome, filha1.corCabelo)// filha1 herdará os atributos do pai e receberá a corCabelo do pai que é preto. O nome será o nome que ela recebeu em filha1.nome = 'Ana'
 
-const filha2 = Object.create(pai, {
-    nome: {
+const filha2 = Object.create(pai, {//filha2 recebe como prototipo os atributos do objeto pai
+    nome: {// Especificamos aqui qual será o nome da filha2 e o comportamento dele.
         value: 'Bia',
         writable: false, // Não será reescrito
-        enumerable: true // Será apresentado no console
+        enumerable: true // Será apresentado no console.
+      //enumerable: false Porém, se trocarmos para enumerable: false, ele não será listado, apresentado.
     }
 })
 
 console.log(filha2.nome)
-filha2.nome = 'Carla'
-console.log(`${filha2.nome} tem cabelo ${filha2.corCabelo}`)
+filha2.nome = 'Carla' // Tentando mudar o nome da filha2 para Carla. Veremos que continuará sendo Bia, pois o atributo nome não é editável - writable = false.
+console.log(`${filha2.nome} tem cabelo ${filha2.corCabelo}`) //filha2 heradará a corCabelo do pai: preto.
 
-console.log(Object.keys(filha1))
-console.log(Object.keys(filha2))
+console.log(Object.keys(filha1)) // Utilizando o metodo Object.keys(filha1) para ver quais atributos filha1 tem. Será retornado o nome - [ 'nome',].
+console.log(Object.keys(filha2)) // // Utilizando o metodo Object.keys(filha2) para ver quais atributos filha2 tem. Será retornado o nome - [ 'nome',].
 
+// O metodo abaixo retornará todos os atributos de filha2.
+for(let key in filha2){
+    filha2.hasOwnProperty(key)// Para saber quais os atributos do Objeto filha2.
+    console.log(key) // Retornará os atributos de filha2, que são nome e corCabelo.
+} 
+
+// O método abaixo retornará os atributos de filha2, porém listando os atributos próprios de filha2 e os herdados do pai.
 for(let key in filha2) {
-    filha2.hasOwnProperty(key) ? // Para saber se os atributos propriedades do objeto ou se vieram por herança.
-        console.log(key) : console.log(`Por herança: ${key}`)
+    filha2.hasOwnProperty(key) ? // Para saber se: os atributos propriedades pertencem ao objeto filha2 ou vieram por herança?
+    // Veja o link: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+    console.log(key) : console.log(`Por herança: ${key}`)// Tempate string.
+    // A propriedade(key) pertence a filha2?
+    // Recebeu por herança?
+    /* O método acima é a forma de sabermos, quando estamos navegando no for in,
+    se os atributos são próprios do objeto ou se foram recebidos por herança.
+    Neste caso o nome é próprio do objeto e a corCabelo foi heradada do pai.
+    */
 }
 
 /**
